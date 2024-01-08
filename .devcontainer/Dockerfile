@@ -1,4 +1,4 @@
-FROM althack/ros2:humble-dev 
+FROM althack/ros:noetic-gazebo
 
 # ** [Optional] Uncomment this section to install additional packages. **
 #
@@ -14,4 +14,5 @@ FROM althack/ros2:humble-dev
 
 # Set up auto-source of workspace for ros user
 ARG WORKSPACE
-RUN echo "if [ -f ${WORKSPACE}/install/setup.bash ]; then source ${WORKSPACE}/install/setup.bash; fi" >> /home/ros/.bashrc
+RUN echo "if [ -f /opt/ros/noetic/setup.bash ]; then source /opt/ros/noetic/setup.bash; fi" >> /home/ros/.bashrc \
+    && echo "if [ -f /workspaces/noetic_dev/devel/setup.bash ]; then source /workspaces/noetic_dev/devel/setup.bash; fi" >> /home/ros/.bashrc
